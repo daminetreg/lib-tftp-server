@@ -1,4 +1,3 @@
-# Ignore build dir
 build/
-# Ignore swap files
 .*.swp
+/.ycm_extra_conf.pyc
