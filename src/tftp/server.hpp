@@ -1,3 +1,9 @@
+/*=============================================================================
+  Copyright (c) 2015 Damien Buhl (alias daminetreg)
+
+  Distributed under the Boost Software License, Version 1.0. (See accompanying
+  file LICENSE or copy at http://www.boost.org/LICENSE_1_0.txt)
+==============================================================================*/
 #ifndef TFTP_SERVER_HPP
 #define TFTP_SERVER_HPP
 
