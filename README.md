@@ -44,6 +44,15 @@ And then you to run a tftp-server on port 6565 you can run :
 build/src/tftp-server 6565
 ```
 
+To query it with a tftp client, like tftp on linux, do : 
+```sh
+sudo apt-get install tftp
+tftp 
+tftp> connect 127.0.0.1 6565
+tftp> binary
+tftp> get file
+```
+
 #### Reusing the library and starting it within your app
 It's header only so you simply have to include the folder `src/` and then link to `boost_system, boost_filesystem`. 
 
