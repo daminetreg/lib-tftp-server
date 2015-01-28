@@ -53,7 +53,24 @@ tftp> binary
 tftp> get file
 ```
 
-#### Reusing the library and starting it within your app
+### Reusing the library and starting it within your app
 It's header only so you simply have to include the folder `src/` and then link to `boost_system, boost_filesystem`. 
 
-To ease reuse I don't distribute a cmake package config file for the moment, however you can using make install to install the headers.
+To ease reuse I don't distribute a cmake package config file for the moment, however you can using `make install` to install the headers.
+
+Additionally integrating it in your code simply requires the same as in [src/main.cpp](./src/main.cpp) : 
+
+```cpp
+#include <boost/asio.hpp>
+#include <tftp/server.hpp>
+
+boost::asio::io_service io_service;
+tftp::server s(io_service, 69);
+io_service.run();
+```
+
+## License
+Copyright (c) 2015 Damien Buhl (alias daminetreg)
+
+Distributed under the Boost Software License, Version 1.0. (See accompanying
+file LICENSE or copy at http://www.boost.org/LICENSE_1_0.txt)
