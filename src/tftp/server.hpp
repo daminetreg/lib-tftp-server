@@ -179,8 +179,18 @@ namespace tftp {
           current_file_served.reset();
         }
 
-        tftp::detail::data_response response(blocknum, block);
-        auto response_buffer = generate_response(response);
+        //tftp::detail::data_response response(blocknum, block);
+        //auto response_buffer = generate_response(response);
+
+
+        tftp::detail::data_response response(blocknum);//, block);
+        auto prefix_response_buffer = generate_response(response);
+
+        std::string response_buffer(prefix_response_buffer.size() + block.size(), '\0');
+        memcpy(const_cast<char*>(response_buffer.data()), prefix_response_buffer.data(), prefix_response_buffer.size());
+        memcpy((void*)(ptrdiff_t(const_cast<char*>(response_buffer.data())) + ptrdiff_t(prefix_response_buffer.size())), block.data(), block.size());
+
+
         socket_.async_send_to(
           boost::asio::buffer(response_buffer.data(), response_buffer.size()),
           sender_endpoint_,

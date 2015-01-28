@@ -95,7 +95,7 @@ BOOST_FUSION_DEFINE_STRUCT(
 BOOST_FUSION_DEFINE_STRUCT(
     (tftp)(detail), data_response,
     (uint16_t, blocknum)
-    (std::string, data)
+    //(std::string, data)
 )
 
 BOOST_FUSION_DEFINE_STRUCT(
@@ -197,7 +197,7 @@ namespace tftp { namespace detail { namespace generator {
         
         response = data | error ;
 
-        data = big_word(opcode::data) << big_word << *char_;
+        data = big_word(opcode::data) << big_word;
 
         error = big_word(opcode::error) << big_word << *char_ << lit('\0');
 
