@@ -2,8 +2,7 @@ cmake_minimum_required(VERSION 2.8.8)
 project (lib-tftp-server)
 
 set (CMAKE_EXPORT_COMPILE_COMMANDS 1) # For .ycm_extra_conf.py
-SET (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror")
-SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++11 -Wall -Werror")
+SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 --std=c++11 -Wall -Werror")
 
 set (CMAKE_BUILD_TYPE "DEBUG")
 
