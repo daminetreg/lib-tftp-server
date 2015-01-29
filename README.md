@@ -11,6 +11,7 @@ This server isn't a fully complete implementation of TFTP, but is a quite trivia
 
   * Supports Read Requests (RRQ, Download) of type octet/binary
   * Supports Data and ACK for files in the work dir of the application
+  * TFTP Options extension as specified in RFC2347, RFC2348, RFC2349. 
 
 **Easy-to-implement to be RFC1350 compliant:**
 I welcome pull-requests or forks, as the code is small and the following might be implemented fast.
