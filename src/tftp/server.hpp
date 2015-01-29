@@ -50,7 +50,7 @@ namespace tftp {
   inline tftp::detail::possible_request parse_request(const std::string& request_toparse) {
     using namespace boost::spirit;
 
-    std::cout << "request_toparse:" << request_toparse << ":request_toparse" << std::endl;
+    //std::cout << "DEBUG: request_toparse:" << request_toparse << ":request_toparse" << std::endl;
 
     tftp::detail::possible_request req;
     auto iter = request_toparse.begin();
@@ -163,7 +163,7 @@ namespace tftp {
               }
 
               auto response_buffer = generate_response(oack_response);
-              std::cout << "DEBUG: sending oack : " << response_buffer << std::endl; 
+              //std::cout << "DEBUG: sending oack : " << response_buffer << std::endl; 
               socket_.async_send_to(
                 asio::buffer(response_buffer.data(), response_buffer.size()), sender_endpoint_,
                 [this](system::error_code /*ec*/, std::size_t /*bytes_sent*/) {
