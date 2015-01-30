@@ -93,7 +93,7 @@ namespace tftp {
   class server : public boost::static_visitor<> {
     public:
 
-      server(boost::asio::io_service& io_service, short port)
+      server(boost::asio::io_service& io_service, short port = 69)
         : socket_(io_service, udp::endpoint(udp::v4(), port)) {
         waiting_for_requests();
       }
