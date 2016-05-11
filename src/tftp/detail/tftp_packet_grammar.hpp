@@ -149,22 +149,22 @@ namespace tftp { namespace detail { namespace parser {
     /**
      * Pases a request packet 
      */
-    rule<Iterator, possible_request()> request;
+    qi::rule<Iterator, possible_request()> request;
 
     /**
      * Parses an ascii name
      */
-    rule<Iterator, std::string()> name;
+    qi::rule<Iterator, std::string()> name;
 
     /**
      * Parses mode (netascii, octet, mail)
      */
-    rule<Iterator, mode()> mode_name;
+    qi::rule<Iterator, mode()> mode_name;
 
     /**
      * Implements options list of RFC2347 (used by barebox namely)
      */
-    rule<Iterator, tftp_options()> options;
+    qi::rule<Iterator, tftp_options()> options;
 
     request_grammar() :
       request_grammar::base_type(request) {
@@ -209,11 +209,11 @@ namespace tftp { namespace detail { namespace generator {
     /**
      * Generates a response packet
      */
-    rule<OutputIterator, possible_response()> response;
+    karma::rule<OutputIterator, possible_response()> response;
 
-    rule<OutputIterator, data_response()> data;
-    rule<OutputIterator, error_response()> error;
-    rule<OutputIterator, option_ack()> oack;
+    karma::rule<OutputIterator, data_response()> data;
+    karma::rule<OutputIterator, error_response()> error;
+    karma::rule<OutputIterator, option_ack()> oack;
 
     response_grammar() :
       response_grammar::base_type(response) {
